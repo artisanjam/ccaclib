@@ -1,6 +1,6 @@
 #include <stddef.h>
 
-#include "queue.h"
+#include "minimal_queue.h"
 
 void
 initialize_queue(queue_t *queue)
