@@ -17,6 +17,7 @@ assert_invariants(miniqueue_t *queue)
 void
 initialize_miniqueue(miniqueue_t *queue)
 {
+	assert(queue != NULL);
     queue->head = NULL;
     queue->tail = NULL;
     assert_invariants(queue);
