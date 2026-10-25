@@ -1,23 +1,19 @@
-typedef struct queue_item queue_item_t;
+#ifndef CCAC_MINIMAL_QUEUE_H
+#define CCAC_MINIMAL_QUEUE_H
 
-typedef struct queue {
-   queue_item_t *head;
-   queue_item_t *tail;
-} queue_t;
+#include "slink_item.h"
 
-struct queue_item {
-    void *data;
-    queue_item_t *next;
-};
+typedef struct miniqueue {
+   slink_item_t *head;
+   slink_item_t *tail;
+} miniqueue_t;
 
 void
-initialize_queue(queue_t *queue);
+initialize_miniqueue(miniqueue_t *queue);
 
 void
-initialize_queue_item(queue_item_t *item, void *data);
+minienqueue(miniqueue_t *queue, slink_item_t *item);
 
-void
-enqueue(queue_t *queue, queue_item_t *item);
-
-queue_item_t *
-dequeue(queue_t *queue);
+slink_item_t *
+minidequeue(miniqueue_t *queue);
+#endif

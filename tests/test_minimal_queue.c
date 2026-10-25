@@ -11,45 +11,45 @@ static const size_t MASSIVE_QUEUE_SIZE = 65536;
 static const size_t UNREASONABLE_QUEUE_SIZE = 262144;
 
 void
-fill_queue(queue_t *queue, size_t *data,
-           queue_item_t *items, size_t size)
+fill_miniqueue(miniqueue_t *queue, size_t *data,
+               slink_item_t *items, size_t size)
 {
     for(size_t i = 0; i < size; i++) {
         data[i] = size - i;
-        initialize_queue_item(&items[i], (void *)&data[i]);
-        enqueue(queue, &items[i]);
+        initialize_slink_item(&items[i], (void *)&data[i]);
+        minienqueue(queue, &items[i]);
     }
 }
 
 void
-dequeue_and_print(queue_t *queue)
+minidequeue_and_print(miniqueue_t *queue)
 {
-    queue_item_t *current;
-    while((current = dequeue(queue)) != NULL) {
+    slink_item_t *current;
+    while((current = minidequeue(queue)) != NULL) {
         printf("%lu ",  *((size_t *)current->data));
     }
     puts("");
 }
 
 void
-basic_queue_test(queue_t *queue, size_t size)
+miniqueue_test(miniqueue_t *queue, size_t size)
 {
     uint64_t data[size];
-    queue_item_t items[size];
+    slink_item_t items[size];
 
-    fill_queue(queue, data, items, size);
-    dequeue_and_print(queue);
+    fill_miniqueue(queue, data, items, size);
+    minidequeue_and_print(queue);
 }
 
 int
 main(void)
 {
-    queue_t queue;
-    initialize_queue(&queue);
-    basic_queue_test(&queue, TINY_QUEUE_SIZE);
-    basic_queue_test(&queue, SMALL_QUEUE_SIZE);
-    basic_queue_test(&queue, LARGE_QUEUE_SIZE);
-    basic_queue_test(&queue, HUGE_QUEUE_SIZE);
-    basic_queue_test(&queue, MASSIVE_QUEUE_SIZE);
-    basic_queue_test(&queue, UNREASONABLE_QUEUE_SIZE);
+    miniqueue_t queue;
+    initialize_miniqueue(&queue);
+    miniqueue_test(&queue, TINY_QUEUE_SIZE);
+    miniqueue_test(&queue, SMALL_QUEUE_SIZE);
+    miniqueue_test(&queue, LARGE_QUEUE_SIZE);
+    miniqueue_test(&queue, HUGE_QUEUE_SIZE);
+    miniqueue_test(&queue, MASSIVE_QUEUE_SIZE);
+    miniqueue_test(&queue, UNREASONABLE_QUEUE_SIZE);
 }

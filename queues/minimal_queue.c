@@ -1,23 +1,17 @@
 #include <stddef.h>
 
+#include "slink_item.h"
 #include "minimal_queue.h"
 
 void
-initialize_queue(queue_t *queue)
+initialize_miniqueue(miniqueue_t *queue)
 {
     queue->head = NULL;
     queue->tail = NULL;
 }
 
 void
-initialize_queue_item(queue_item_t *item, void *data)
-{
-    item->data = data;
-    item->next = NULL;
-}
-
-void
-enqueue(queue_t *queue, queue_item_t *item)
+minienqueue(miniqueue_t *queue, slink_item_t *item)
 {
     if (queue->head == NULL) {
         queue->head = item;
@@ -27,10 +21,10 @@ enqueue(queue_t *queue, queue_item_t *item)
     queue->tail = item;
 }
 
-queue_item_t *
-dequeue(queue_t *queue)
+slink_item_t *
+minidequeue(miniqueue_t *queue)
 {
-    queue_item_t *item;
+    slink_item_t *item;
 
     item = queue->head;
     if(item != NULL) {
