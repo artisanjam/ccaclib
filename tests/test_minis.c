@@ -5,6 +5,8 @@
 #include "ccaclib/stacks/minimal_stack.h"
 #include "ccaclib/queues/minimal_queue.h"
 
+#define TEST_COMPLETE puts("Test completed!")
+
 static const size_t TINY_SIZE = 4;
 static const size_t SMALL_SIZE = 128;
 
@@ -84,4 +86,6 @@ main(void)
     initialize_ministack(&stack);
     test_ministack(&stack, TINY_SIZE);
     test_ministack(&stack, SMALL_SIZE);
+
+	TEST_COMPLETE;
 }
