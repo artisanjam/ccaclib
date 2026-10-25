@@ -4,14 +4,18 @@
 #include "ccaclib/common/slink_item.h"
 #include "ccaclib/queues/minimal_queue.h"
 
-#define TEST_COMPLETE puts("Test completed!")
-
 static const size_t TINY_QUEUE_SIZE = 4;
 static const size_t SMALL_QUEUE_SIZE = 128;
 static const size_t LARGE_QUEUE_SIZE = 1024;
 static const size_t HUGE_QUEUE_SIZE = 4096;
 static const size_t MASSIVE_QUEUE_SIZE = 65536;
 static const size_t UNREASONABLE_QUEUE_SIZE = 262144;
+
+static void
+test_complete(void)
+{
+	puts("test complete!");
+}
 
 void
 fill_miniqueue(miniqueue_t *queue, size_t *data,
@@ -55,5 +59,5 @@ main(void)
     miniqueue_test(&queue, HUGE_QUEUE_SIZE);
     miniqueue_test(&queue, MASSIVE_QUEUE_SIZE);
     miniqueue_test(&queue, UNREASONABLE_QUEUE_SIZE);
-	TEST_COMPLETE;
+	test_complete();
 }
