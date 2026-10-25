@@ -1,8 +1,9 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "minimal_stack.h"
-#include "minimal_queue.h"
+#include "ccaclib/common/slink_item.h"
+#include "ccaclib/stacks/minimal_stack.h"
+#include "ccaclib/queues/minimal_queue.h"
 
 static const size_t TINY_SIZE = 4;
 static const size_t SMALL_SIZE = 128;

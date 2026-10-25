@@ -1,8 +1,8 @@
 #include <assert.h>
 #include <stddef.h>
 
-#include "minimal_stack.h"
-#include "slink_item.h"
+#include "ccaclib/common/slink_item.h"
+#include "ccaclib/stacks/minimal_stack.h"
 
 void
 initialize_ministack(ministack_t *stack)

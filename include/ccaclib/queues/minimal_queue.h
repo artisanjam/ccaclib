@@ -1,7 +1,7 @@
 #ifndef CCAC_MINIMAL_QUEUE_H
 #define CCAC_MINIMAL_QUEUE_H
 
-#include "slink_item.h"
+#include "ccaclib/common/slink_item.h"
 
 typedef struct miniqueue {
    slink_item_t *head;

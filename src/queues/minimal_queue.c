@@ -1,7 +1,7 @@
 #include <stddef.h>
 
-#include "slink_item.h"
-#include "minimal_queue.h"
+#include "ccaclib/common/slink_item.h"
+#include "ccaclib/queues/minimal_queue.h"
 
 void
 initialize_miniqueue(miniqueue_t *queue)

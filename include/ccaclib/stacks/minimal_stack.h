@@ -1,7 +1,7 @@
 #ifndef CCAC_MINIMAL_STACK_H
 #define CCAC_MINIMAL_STACK_H
 
-#include "slink_item.h"
+#include "ccaclib/common/slink_item.h"
 
 typedef struct ministack {
     slink_item_t *top;

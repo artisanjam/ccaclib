@@ -1,5 +1,5 @@
 CC=gcc
-CPPFLAGS=-Iinclude -Iqueues -Istacks
+CPPFLAGS=-Iinclude
 
 CFLAGS=-Wall -Wextra
 DEBUGFLAGS=-g -fsanitize=address
@@ -17,15 +17,15 @@ all: test_minimal_queue test_minis
 
 test_minimal_queue: \
 	tests/test_minimal_queue.c \
-	src/slink_item.c \
-	queues/minimal_queue.c
+	src/common/slink_item.c \
+	src/queues/minimal_queue.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $^ -o $@
 
 test_minis: \
 	tests/test_minis.c \
-	src/slink_item.c \
-	stacks/minimal_stack.c \
-	queues/minimal_queue.c 
+	src/common/slink_item.c \
+	src/stacks/minimal_stack.c \
+	src/queues/minimal_queue.c 
 	$(CC) $(CPPFLAGS) $(CFLAGS) $^ -o $@
 
 run_minimal_queue: test_minimal_queue
