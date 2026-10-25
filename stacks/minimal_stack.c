@@ -16,7 +16,7 @@ minipush(ministack_t *stack, slink_item_t *item)
 {
     assert(stack != NULL);
     assert(item != NULL);
-    assert(item->next != NULL); // Detect possible stale linkage
+    assert(item->next == NULL); // Detect possible stale linkage
 
     item->next = stack->top;
     stack->top = item;
